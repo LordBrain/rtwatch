@@ -135,10 +135,13 @@ func main() {
 func handleWebsocketMessage(pc *webrtc.PeerConnection, ws *websocket.Conn, message *websocketMessage) error {
 	switch message.Event {
 	case "play":
+		log.Println("Play button")
 		pipeline.Play()
 	case "pause":
+		log.Println("Pause button")
 		pipeline.Pause()
 	case "seek":
+		log.Println("Play button")
 		i, err := strconv.ParseInt(message.Data, 0, 64)
 		if err != nil {
 			log.Print(err)
