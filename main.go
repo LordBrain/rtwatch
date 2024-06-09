@@ -84,8 +84,8 @@ const homeHTML = `<!DOCTYPE html>
 
 var (
 	upgrader = websocket.Upgrader{
-		ReadBufferSize:  1024,
-		WriteBufferSize: 1024,
+		ReadBufferSize:  2096,
+		WriteBufferSize: 2096,
 	}
 
 	peerConnectionConfig = webrtc.Configuration{}
@@ -141,7 +141,7 @@ func handleWebsocketMessage(pc *webrtc.PeerConnection, ws *websocket.Conn, messa
 		log.Println("Pause button")
 		pipeline.Pause()
 	case "seek":
-		log.Println("Play button")
+		log.Println("Seek button")
 		i, err := strconv.ParseInt(message.Data, 0, 64)
 		if err != nil {
 			log.Print(err)
